@@ -190,9 +190,9 @@ class _BetterPlayerMaterialControlsState
                     child: Container(
                       height: _controlsConfiguration.controlBarHeight,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          _buildMoreButton(),
+                          _buildBackButton(),
                         ],
                       ),
                     ),
