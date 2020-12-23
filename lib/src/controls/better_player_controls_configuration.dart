@@ -38,6 +38,9 @@ class BetterPlayerControlsConfiguration {
   ///Cupertino only icon, icon of forward
   final IconData skipForwardIcon;
 
+  /// Back Icon
+  final IconData backIcon;
+
   ///Flag used to enable/disable fullscreen
   final bool enableFullscreen;
 
@@ -90,6 +93,9 @@ class BetterPlayerControlsConfiguration {
   ///qualities options.
   final bool enableOverflowMenu;
 
+  //Flag used to show/hide back icon
+  final bool enableBackMenu;
+
   ///Flag used to show/hide playback speed
   final bool enablePlaybackSpeed;
 
@@ -120,45 +126,51 @@ class BetterPlayerControlsConfiguration {
   ///Time which will be used once user uses rewind and forward
   final int skipsTimeInMilliseconds;
 
-  const BetterPlayerControlsConfiguration(
-      {this.controlBarColor = Colors.black87,
-      this.textColor = Colors.white,
-      this.iconsColor = Colors.white,
-      this.playIcon = Icons.play_arrow,
-      this.pauseIcon = Icons.pause,
-      this.muteIcon = Icons.volume_up,
-      this.unMuteIcon = Icons.volume_mute,
-      this.fullscreenEnableIcon = Icons.fullscreen,
-      this.fullscreenDisableIcon = Icons.fullscreen_exit,
-      this.skipBackIcon = Icons.fast_rewind,
-      this.skipForwardIcon = Icons.fast_forward,
-      this.enableFullscreen = true,
-      this.enableMute = true,
-      this.enableProgressText = false,
-      this.enableProgressBar = true,
-      this.enablePlayPause = true,
-      this.enableSkips = true,
-      this.progressBarPlayedColor = Colors.white,
-      this.progressBarHandleColor = Colors.white,
-      this.progressBarBufferedColor = Colors.white70,
-      this.progressBarBackgroundColor = Colors.white60,
-      this.controlsHideTime = const Duration(milliseconds: 300),
-      this.customControls,
-      this.showControls = true,
-      this.showControlsOnInitialize = true,
-      this.controlBarHeight = 48.0,
-      this.liveTextColor = Colors.red,
-      this.enableOverflowMenu = true,
-      this.enablePlaybackSpeed = true,
-      this.enableSubtitles = true,
-      this.enableQualities = true,
-      this.overflowMenuCustomItems = const [],
-      this.overflowMenuIcon = Icons.more_vert,
-      this.playbackSpeedIcon = Icons.shutter_speed,
-      this.qualitiesIcon = Icons.hd,
-      this.subtitlesIcon = Icons.text_fields,
-      this.overflowMenuIconsColor = Colors.black,
-      this.skipsTimeInMilliseconds = 15000});
+  final VoidCallback onBackPressed;
+
+  const BetterPlayerControlsConfiguration({
+    this.controlBarColor = Colors.black87,
+    this.textColor = Colors.white,
+    this.iconsColor = Colors.white,
+    this.playIcon = Icons.play_arrow,
+    this.pauseIcon = Icons.pause,
+    this.muteIcon = Icons.volume_up,
+    this.unMuteIcon = Icons.volume_mute,
+    this.fullscreenEnableIcon = Icons.fullscreen,
+    this.fullscreenDisableIcon = Icons.fullscreen_exit,
+    this.skipBackIcon = Icons.fast_rewind,
+    this.skipForwardIcon = Icons.fast_forward,
+    this.backIcon = Icons.arrow_back,
+    this.enableFullscreen = true,
+    this.enableMute = true,
+    this.enableProgressText = false,
+    this.enableProgressBar = true,
+    this.enablePlayPause = true,
+    this.enableSkips = true,
+    this.progressBarPlayedColor = Colors.white,
+    this.progressBarHandleColor = Colors.white,
+    this.progressBarBufferedColor = Colors.white70,
+    this.progressBarBackgroundColor = Colors.white60,
+    this.controlsHideTime = const Duration(milliseconds: 300),
+    this.customControls,
+    this.showControls = true,
+    this.showControlsOnInitialize = true,
+    this.controlBarHeight = 48.0,
+    this.liveTextColor = Colors.red,
+    this.enableOverflowMenu = true,
+    this.enableBackMenu = false,
+    this.enablePlaybackSpeed = true,
+    this.enableSubtitles = true,
+    this.enableQualities = true,
+    this.overflowMenuCustomItems = const [],
+    this.overflowMenuIcon = Icons.more_vert,
+    this.playbackSpeedIcon = Icons.shutter_speed,
+    this.qualitiesIcon = Icons.hd,
+    this.subtitlesIcon = Icons.text_fields,
+    this.overflowMenuIconsColor = Colors.black,
+    this.skipsTimeInMilliseconds = 15000,
+    this.onBackPressed,
+  });
 
   factory BetterPlayerControlsConfiguration.white() {
     return BetterPlayerControlsConfiguration(

@@ -150,7 +150,8 @@ class _BetterPlayerMaterialControlsState
   }
 
   Widget _buildTopBar() {
-    return _controlsConfiguration.enableOverflowMenu
+    return _controlsConfiguration.enableOverflowMenu &&
+            _controlsConfiguration.enableBackMenu
         ? AnimatedOpacity(
             opacity: _hideStuff ? 0.0 : 1.0,
             duration: _controlsConfiguration.controlsHideTime,
@@ -158,14 +159,30 @@ class _BetterPlayerMaterialControlsState
             child: Container(
               height: _controlsConfiguration.controlBarHeight,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  _buildBackButton(),
                   _buildMoreButton(),
                 ],
               ),
             ),
           )
-        : const SizedBox();
+        : _controlsConfiguration.enableOverflowMenu
+            ? AnimatedOpacity(
+                opacity: _hideStuff ? 0.0 : 1.0,
+                duration: _controlsConfiguration.controlsHideTime,
+                onEnd: _onPlayerHide,
+                child: Container(
+                  height: _controlsConfiguration.controlBarHeight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      _buildMoreButton(),
+                    ],
+                  ),
+                ),
+              )
+            : const SizedBox();
   }
 
   Widget _buildMoreButton() {
@@ -179,6 +196,23 @@ class _BetterPlayerMaterialControlsState
       ),
       onTap: () {
         onShowMoreClicked();
+      },
+    );
+  }
+
+  Widget _buildBackButton() {
+    return BetterPlayerMaterialClickableWidget(
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Icon(
+          _controlsConfiguration.backIcon,
+          color: _controlsConfiguration.iconsColor,
+        ),
+      ),
+      onTap: () {
+        if (widget.controlsConfiguration.onBackPressed != null) {
+          widget.controlsConfiguration.onBackPressed();
+        }
       },
     );
   }

@@ -57,6 +57,7 @@ class _VideoProgressBarState
 
   @override
   Widget build(BuildContext context) {
+
     void seekToRelativePosition(Offset globalPosition) {
       final box = context.findRenderObject() as RenderBox;
       final Offset tapPos = box.globalToLocal(globalPosition);
