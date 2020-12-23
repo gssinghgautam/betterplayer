@@ -182,7 +182,22 @@ class _BetterPlayerMaterialControlsState
                   ),
                 ),
               )
-            : const SizedBox();
+            : _controlsConfiguration.enableBackMenu
+                ? AnimatedOpacity(
+                    opacity: _hideStuff ? 0.0 : 1.0,
+                    duration: _controlsConfiguration.controlsHideTime,
+                    onEnd: _onPlayerHide,
+                    child: Container(
+                      height: _controlsConfiguration.controlBarHeight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          _buildMoreButton(),
+                        ],
+                      ),
+                    ),
+                  )
+                : const SizedBox();
   }
 
   Widget _buildMoreButton() {
