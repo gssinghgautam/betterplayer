@@ -90,6 +90,9 @@ class BetterPlayerConfiguration {
   /// ignored.
   final bool autoDetectFullscreenDeviceOrientation;
 
+  //Enable Dragging of progress to skip
+  final bool enableDragging;
+
   const BetterPlayerConfiguration({
     this.aspectRatio,
     this.autoPlay = false,
@@ -122,6 +125,7 @@ class BetterPlayerConfiguration {
     this.playerVisibilityChangedBehavior,
     this.translations,
     this.autoDetectFullscreenDeviceOrientation = false,
+    this.enableDragging,
   });
 
   BetterPlayerConfiguration copyWith({
@@ -148,6 +152,7 @@ class BetterPlayerConfiguration {
     Function(double visibilityFraction) playerVisibilityChangedBehavior,
     BetterPlayerTranslations translations,
     bool autoDetectFullscreenDeviceOrientation,
+    bool enableDragging,
   }) {
     return BetterPlayerConfiguration(
       aspectRatio: aspectRatio ?? this.aspectRatio,
@@ -179,6 +184,7 @@ class BetterPlayerConfiguration {
       autoDetectFullscreenDeviceOrientation:
           autoDetectFullscreenDeviceOrientation ??
               this.autoDetectFullscreenDeviceOrientation,
+      enableDragging: enableDragging ?? this.enableDragging
     );
   }
 }

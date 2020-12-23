@@ -34,6 +34,8 @@ class BetterPlayerController extends ChangeNotifier {
 
   bool get looping => betterPlayerConfiguration.looping;
 
+  bool get enableDragging => betterPlayerConfiguration.enableDragging;
+
   Widget Function(BuildContext context, String errorMessage) get errorBuilder =>
       betterPlayerConfiguration.errorBuilder;
 
@@ -339,6 +341,7 @@ class BetterPlayerController extends ChangeNotifier {
   }
 
   Future<void> seekTo(Duration moment) async {
+    if (!enableDragging) return;
     await videoPlayerController.seekTo(moment);
     _postEvent(BetterPlayerEvent(BetterPlayerEventType.SEEK_TO,
         parameters: {_durationParameter: moment}));
