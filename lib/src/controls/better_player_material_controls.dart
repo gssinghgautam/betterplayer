@@ -85,7 +85,7 @@ class _BetterPlayerMaterialControlsState
           child: Column(
             children: [
               _buildTopBar(),
-              _wasLoading
+              isLoading(_controller.value)
                   ? Expanded(child: Center(child: _buildLoadingWidget()))
                   : _buildHitArea(),
               _buildBottomBar(),
