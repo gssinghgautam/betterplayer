@@ -8,6 +8,9 @@ class BetterPlayerControlsConfiguration {
   ///Color of the control bars
   final Color controlBarColor;
 
+  //Color of the loading progress bar
+  final Color loadingProgressColor;
+
   ///Color of texts
   final Color textColor;
 
@@ -130,6 +133,7 @@ class BetterPlayerControlsConfiguration {
 
   const BetterPlayerControlsConfiguration({
     this.controlBarColor = Colors.black87,
+    this.loadingProgressColor = Colors.black87,
     this.textColor = Colors.white,
     this.iconsColor = Colors.white,
     this.playIcon = Icons.play_arrow,
@@ -175,6 +179,7 @@ class BetterPlayerControlsConfiguration {
   factory BetterPlayerControlsConfiguration.white() {
     return BetterPlayerControlsConfiguration(
         controlBarColor: Colors.white,
+        loadingProgressColor: Colors.white,
         textColor: Colors.black,
         iconsColor: Colors.black,
         progressBarPlayedColor: Colors.black,
